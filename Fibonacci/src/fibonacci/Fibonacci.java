@@ -17,46 +17,45 @@ public class Fibonacci {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner read =  new Scanner (System.in);
+        Scanner read = new Scanner(System.in);
         System.out.println("Enter 1 iterative Fibonacci or 2 recursive Fibonacci");
         int select = read.nextInt();
         System.out.println("Enter the maximum number of sequences you want to see");
-        int max = read.nextInt();
-    
-    int first=1;
-    int second=0;
-    int ini = 0;
-    System.out.println("1");
-    if(select == 1){
-    int result= fibonacci2(max, first, second, ini);
-    }else if(select == 2){
-    int result= fibonacci1(max, first, second, ini); 
-    
+        int maximum = read.nextInt();
+
+        int first = 0;
+        int second = 1;
+        int initial = 0;
+        System.out.println("0");
+        if (select == 1) {
+            fibonacciIterative(maximum, first, second, initial);
+        } else if (select == 2) {
+            fibonacciRecursive(maximum, first, second, initial);
+
+        }
     }
-    }
-   public static  int  fibonacci1(int max, int first, int second, int ini){
-        int aux = first;
+
+    public static int fibonacciRecursive(int max, int first, int second, int initial) {
         
-        if(ini != max){
-            ini++;
+        if (initial != max) {
+            int auxiliary = first;
             first = first + second;
-            second = aux;
+            second = auxiliary;
             System.out.println(first);
-            fibonacci1(max,first,second,ini);
+            initial++;
+            fibonacciRecursive(max, first, second, initial);
         }
         return first;
     }
-    
-    public static  int  fibonacci2(int max, int first, int second, int ini){
-        
-        
-        while(ini != max){
-            int aux = first;
+
+    public static int fibonacciIterative(int max, int first, int second, int ini) {
+
+        while (ini != max) {
+            int auxiliary = first;
             ini++;
             first = first + second;
-            second = aux;
+            second = auxiliary;
             System.out.println(first);
-            
         }
         return first;
     }
