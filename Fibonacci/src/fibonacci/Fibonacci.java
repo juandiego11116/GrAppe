@@ -35,28 +35,25 @@ public class Fibonacci {
         }
     }
 
-    public static int fibonacciRecursive(int max, int first, int second, int initial) {
+    public static void fibonacciRecursive(int max, int first, int second, int initial) {
         
         if (initial != max) {
-            int auxiliary = first;
-            first = first + second;
-            second = auxiliary;
-            System.out.println(first);
+            int nextNumber = first + second;
+            System.out.println(nextNumber);
             initial++;
-            fibonacciRecursive(max, first, second, initial);
+            fibonacciRecursive(max, second, nextNumber, initial);
         }
-        return first;
+       // return first;
     }
 
-    public static int fibonacciIterative(int max, int first, int second, int ini) {
+    public static void fibonacciIterative(int max, int first, int second, int initial) {
 
-        while (ini != max) {
-            int auxiliary = first;
-            ini++;
-            first = first + second;
-            second = auxiliary;
-            System.out.println(first);
+        while (initial != max) {
+            int nextNumber = first + second;
+            first = second;
+            second = nextNumber;
+            System.out.println(nextNumber);
+            initial++;
         }
-        return first;
     }
 }
